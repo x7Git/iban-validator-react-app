@@ -36,7 +36,7 @@ export function App() {
         setLoading(true)
         setResult({ status: null })
 
-        const API_URL = "http://localhost:8080/validate-iban";
+        const API_URL = "https://iban-validator-qiuct.sevalla.app/validate-iban";
 
         try {
             const response = await fetch(API_URL, {
