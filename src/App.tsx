@@ -14,7 +14,7 @@ export function App() {
     const [result, setResult] = useState<ResultModel>({ status: null })
 
     const formatIban = (value: string) => {
-        const cleaned = value.replace(/\s/g, "").toUpperCase()
+        const cleaned  = value.replace(/[^A-Za-z0-9]/g, "").toUpperCase()
         return cleaned.match(/.{1,4}/g)?.join(" ") || cleaned
     }
 
