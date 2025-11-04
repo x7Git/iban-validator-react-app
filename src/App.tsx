@@ -32,7 +32,8 @@ export function App() {
         setLoading(true)
         setResult({ status: null })
 
-        const API_URL = "https://iban-validator-qiuct.sevalla.app/validate-iban";
+        // @ts-ignore
+        const API_URL = import.meta.env.VITE_IBAN_API_URL as string;
 
         try {
             const response = await fetch(API_URL, {
