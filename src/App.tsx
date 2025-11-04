@@ -6,16 +6,12 @@ import * as React from "react";
 import {useState} from "react";
 import {AlertCircle, CheckCircle2, Loader2} from "lucide-react";
 import {BankModel} from "@/models/bankModel";
+import {ResultModel} from "@/models/resultModel";
 
 export function App() {
     const [iban, setIban] = useState("")
     const [loading, setLoading] = useState(false)
-    const [result, setResult] = useState<{
-        status: "success" | "error" | null
-        bankName?: string
-        bic?: string
-        message?: string
-    }>({ status: null })
+    const [result, setResult] = useState<ResultModel>({ status: null })
 
     const formatIban = (value: string) => {
         const cleaned = value.replace(/\s/g, "").toUpperCase()
@@ -56,7 +52,6 @@ export function App() {
                 return;
             }
 
-            // Handle specific status codes if needed
             if (response.status === 400) {
                 setResult({
                     status: "error",
